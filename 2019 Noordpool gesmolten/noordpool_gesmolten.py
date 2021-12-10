@@ -40,7 +40,7 @@ start = tuple(data['flats'][0])  # (x, y)
 finish = data['flats'][-1][0]  # x
 
 # {x1: None, x2: None, etc...}
-cost_per_house = {huis[0]: None for huis in data['flats'][1:]}
+cost_per_house = {huis[0]: float('inf') for huis in data['flats'][1:]}
 
 # {(x, y): cost}
 possible_steps = {(0, 0): 0, (0, 1): 1, (0, 2): 2, (0, 3): 3, (0, 4): 4,
@@ -78,7 +78,7 @@ while combinations:
                 energy_used = comb['energy_used'] + cost
 
                 # Update cost to reach current position
-                if position and (cost_per_house[x] is None or energy_used < cost_per_house[x]):
+                if position and energy_used < cost_per_house[x]:
                     cost_per_house[x] = energy_used
                     positions_updated.add(x)
 
