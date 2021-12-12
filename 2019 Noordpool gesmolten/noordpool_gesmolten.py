@@ -4,6 +4,7 @@ import json
 
 input_file = 'real_input.json'
 #input_file = 'test_input.json'
+#input_file = 'benchmark_input.json'
 
 with open(input_file) as f:
     data = json.load(f)

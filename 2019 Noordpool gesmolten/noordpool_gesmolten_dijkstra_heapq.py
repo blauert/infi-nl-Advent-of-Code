@@ -1,5 +1,6 @@
 # https://aoc.infi.nl/2019/
 
+import heapq
 import json
 
 input_file = 'real_input.json'
@@ -12,8 +13,7 @@ with open(input_file) as f:
 huizen = {x: y for x, y in data['flats']}
 
 
-# Deel 2 using textbook Dijkstra'a algorithm
-# (runs slower than other solution)
+# Deel 2 using textbook Dijkstra'a algorithm with heapq (fast)
 
 possible_steps = {(0, 0): 0, (0, 1): 1, (0, 2): 2, (0, 3): 3, (0, 4): 4,
                   (1, 0): 1, (1, 1): 2, (1, 2): 3, (1, 3): 4,
@@ -48,28 +48,21 @@ costs[start] = 0
 parents = {}
 processed = set()
 
+min_dist = [(0, start)]
 
-def find_lowest_cost_node(costs):
-    lowest_cost = float('inf')
-    lowest_cost_node = None
-    for node in costs:
-        cost = costs[node]
-        if cost < lowest_cost and node not in processed:
-            lowest_cost = cost
-            lowest_cost_node = node
-    return lowest_cost_node
+while min_dist:
 
+    cur_dist, cur = heapq.heappop(min_dist)
+    if cur in processed:
+        continue
+    processed.add(cur)
 
-node = start
-while node is not None:
-    cost = costs[node]
-    neighbors = graph[node]
-    for n in neighbors.keys():
-        new_cost = cost + neighbors[n]
-        if costs[n] > new_cost:
-            costs[n] = new_cost
-            parents[n] = node
-    processed.add(node)
-    node = find_lowest_cost_node(costs)
+    for neighbor in graph[cur]:
+        if neighbor in processed:
+            continue
+        this_dist = cur_dist + graph[cur][neighbor]
+        if this_dist < costs[neighbor]:
+            costs[neighbor] = this_dist
+            heapq.heappush(min_dist, (this_dist, neighbor))
 
 print(f"Deel 2: Het meest efficiente pad kost {costs[finish]} energie.")
