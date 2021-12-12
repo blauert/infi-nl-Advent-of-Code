@@ -42,8 +42,7 @@ start = data['flats'][0][0]
 finish = data['flats'][-1][0]
 
 costs = {house[0]: float('inf') for house in data['flats'][1:]}
-for node, cost in graph[start].items():
-    costs[node] = cost
+costs[start] = 0
 
 parents = {}
 processed = set()
@@ -60,7 +59,7 @@ def find_lowest_cost_node(costs):
     return lowest_cost_node
 
 
-node = find_lowest_cost_node(costs)
+node = start
 while node is not None:
     cost = costs[node]
     neighbors = graph[node]
