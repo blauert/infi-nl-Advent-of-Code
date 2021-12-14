@@ -60,15 +60,13 @@ def generate_graph(grid):
     return graph
 
 
-# Deel 1
-
 def stappen_counter():
     graph = generate_graph(grid)
     stappen = -1  # start with 0 steps on start (0, 0)
-    positions = [start]
+    positions = set([start])
     visited = set()
     while positions:
-        temp = []
+        temp = set()
         stappen += 1
         for pos in positions:
             visited.add(pos)
@@ -77,7 +75,7 @@ def stappen_counter():
             neighbors = graph[pos]
             for neighbor in neighbors:
                 if neighbor not in visited:
-                    temp.append(neighbor)
+                    temp.add(neighbor)
         positions = temp
 
 
