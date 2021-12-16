@@ -13,8 +13,8 @@ moves = [move.strip(')') for move in data[1].split(')(')]
 robots = [[int(i) for i in bot.split(',')] for bot in robots]
 moves = [[int(i) for i in move.split(',')] for move in moves]
 
-knelpunten = 0
-knelmoves = []
+botsingen = 0
+knelpunten = []
 for i in range(0, len(moves), len(robots)):
     for j in range(len(robots)):
         current_robot = j
@@ -27,15 +27,22 @@ for i in range(0, len(moves), len(robots)):
         if robot != robot1:
             botsing = False
     if botsing:
-        knelmoves.append(i)
-        knelpunten += 1
+        knelpunten.append([robots[current_robot][0], robots[current_robot][1]])
+        botsingen += 1
 
-print(f"Deel 1: {knelpunten}")
+print(f"Deel 1: {botsingen}")
+
 
 # Deel 2
 
-pattern = []
-for i in range(len(knelmoves)-1):
-    pattern.append(knelmoves[i+1] - knelmoves[i])
+x_max = max([punt[0] for punt in knelpunten])
+y_max = max([punt[1] for punt in knelpunten])
+knelmap = [[' ' for i in range(x_max+1)] for i in range(y_max+1)]
+for punt in knelpunten:
+    knelmap[punt[1]][punt[0]] = '#'
 
-print(set(pattern))
+print("Deel 2:")
+for row in knelmap:
+    for char in row:
+        print(char, end='')
+    print()
