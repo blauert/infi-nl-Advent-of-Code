@@ -12,6 +12,13 @@ Elke karakter geeft een tegel met 2 tot 4 uitgangen weer. Voorbeelden hiervan zi
 
 Alle mogelijke tegels zijn: ║ ╔ ╗ ╠ ╦ ╚ ╝ ╬ ╩ ═ ╣.
 
+```
+[╔] ═  ╗  ║ 
+ ╠  ╗  ╠  ║ 
+ ╬  ╬  ╣  ╬ 
+ ╚  ╩  ╩  ═ <-
+```
+
 Santa bevindt zich linksboven en moet rechtsonder zien te komen. Hij kan alleen naar de volgende tegel als de uitgangen aansluiten. Bijvoorbeeld, bij ═╦ zou hij van links naar rechts kunnen, maar niet bij ═╚. Kun je de kortste route vinden naar de uitgang?
 
 **Hoeveel stappen heeft Santa nodig om op de tegel rechtsonder te komen?**
@@ -24,6 +31,35 @@ De route is duidelijk en Santa meent al vrij te zijn, maar na de eerste stap bli
 -   Als er geen rijen of kolommen meer zijn om te verschuiven (bijvoorbeeld wanneer het doolhof 5 tegels breed is en Santa 6 stappen heeft gezet) begint het weer bij de eerste rij of kolom (afhankelijk van welke aan de beurt is).
 -   Tegels die buiten het doolhof schuiven komen weer bij aan het begin van de betreffende rij of kolom (e.g. als een rij naar rechts schuift komt de laatste tegel aan het begin van de rij te staan).
 -   Santa schuift zelf mee als de tegel waarop hij staat beweegt, behalve wanneer hij op de tegel rechtsonder staat, dan loopt hij direct naar buiten en zijn er geen verdere stappen meer nodig.
+
+```
+() = rij of kolom die na de volgende stap verschuift
+
+(╔)(═)(╗)(║)
+ ╠  ╗  ╠  ║ 
+ ╬  ╬  ╣  ╬ 
+ ╚  ╩  ╩  ═  <-
+
+ ║ (╔) ═  ╗ 
+ ╠ (╗) ╠  ║ 
+ ╬ (╬) ╣  ╬ 
+ ╚ (╩) ╩  ═  <-
+
+ ║  ╩  ═  ╗ 
+ ╠  ╔  ╠  ║ 
+(╬)(╗)(╣)(╬)
+ ╚  ╬  ╩  ═  <-
+
+ ║  ╩  ═ (╗)
+ ╠  ╔  ╠ (║)
+ ╬  ╬  ╗ (╣)
+ ╚  ╬  ╩ (═) <-
+
+(║)(╩)(═)(═)
+ ╠  ╔  ╠  ╗ 
+ ╬  ╬  ╗  ║ 
+ ╚  ╬  ╩  ╣  <-
+```
 
 Kun je de kortste route vinden naar de uitgang? Deze keer rekening houdend met de verschuivingen die na elke stap plaatsvinden.
 
