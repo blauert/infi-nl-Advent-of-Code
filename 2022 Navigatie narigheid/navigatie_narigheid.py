@@ -44,15 +44,14 @@ for i, j in instructies:
     j = int(j)
     if i == 'draai':
         richting = draai(richting, j)
-        continue
-    if i == 'loop':
+    elif i == 'loop':
         stappen = 1
         if j < 0:
             stappen = -1
         for _ in range(abs(j)):
             positie = stap(positie, richting, stappen)
             spoor.add(positie)
-    if i == 'spring':
+    elif i == 'spring':
         positie = stap(positie, richting, j)
         spoor.add(positie)
 
