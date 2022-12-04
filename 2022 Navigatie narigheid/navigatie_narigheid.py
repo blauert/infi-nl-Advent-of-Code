@@ -40,19 +40,19 @@ positie = (0, 0)
 richting = 0
 spoor = set()
 
-for i, j in instructies:
-    j = int(j)
-    if i == 'draai':
-        richting = draai(richting, j)
-    elif i == 'loop':
+for instr, val in instructies:
+    val = int(val)
+    if instr == 'draai':
+        richting = draai(richting, val)
+    elif instr == 'loop':
         stappen = 1
-        if j < 0:
+        if val < 0:
             stappen = -1
-        for _ in range(abs(j)):
+        for _ in range(abs(val)):
             positie = stap(positie, richting, stappen)
             spoor.add(positie)
-    elif i == 'spring':
-        positie = stap(positie, richting, j)
+    elif instr == 'spring':
+        positie = stap(positie, richting, val)
         spoor.add(positie)
 
 print(f"Manhattan afstand: {abs(positie[0]) + abs(positie[1])}")
