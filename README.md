@@ -7,7 +7,7 @@ https://aoc.infi.nl/
 
 2019: Dijkstra's algorithm
 
-2020: Guessing (steps)
+2020: Guessing & Bisection
 
 2021: Combinations
 
