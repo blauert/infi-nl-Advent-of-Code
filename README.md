@@ -1,7 +1,7 @@
 # infi.nl Advent of Code
 https://aoc.infi.nl/
 
-|Year|.py|Notes|
+|Year|.py|Notes ✏️|
 |:--:|:--:|:---|
 |2017|🎅🎅|Coordinates|
 |2018|🎅🎅|Graphs (shifting maze)|
