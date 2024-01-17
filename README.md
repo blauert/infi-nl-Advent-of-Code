@@ -9,3 +9,4 @@ https://aoc.infi.nl/
 |[2020](./2020%20Bepakt%20en%20bezakt/)|🎅🎅|Guessing and bisection 🌎|
 |[2021](./2021%20Pakjes%20paniek/)|🎅🎅|Combinations 🛍️|
 |[2022](./2022%20Navigatie%20narigheid/)|🎅🎅|Coordinates|
+|[2023](./2023%20Een%20veelzijdige%20oplossing/)|🎅🎅|Minimum bounding circle|
