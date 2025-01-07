@@ -10,3 +10,4 @@ https://aoc.infi.nl/
 |[2021](./2021%20Pakjes%20paniek/)|🎅🎅|Combinations 🛍️|
 |[2022](./2022%20Navigatie%20narigheid/)|🎅🎅|Coordinates|
 |[2023](./2023%20Een%20veelzijdige%20oplossing/)|🎅🎅|Minimum bounding circle|
+|[2024](./2024%20Sneeuwvlokken%20en%20sneeuwblokken%20/)|🎅🎅|Stack machine ☁️|
